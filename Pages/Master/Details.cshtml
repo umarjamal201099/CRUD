@@ -1,0 +1,39 @@
+﻿@page
+@model CRUD.Pages.Master.DetailsModel
+
+@{
+    ViewData["Title"] = "Task Details";
+}
+
+@* Bootstrap 5 + Custom Styles for Modern Look *@
+
+<h1 class="text-center text-primary mb-4">Task Details</h1>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-center mb-4">Task Information</h5>
+
+                    <dl class="row">
+                        <dt class="col-sm-3">Task Title</dt>
+                        <dd class="col-sm-9">@Model.TaskItem.Title</dd>
+                    </dl>
+
+                    <div class="d-flex justify-content-between mt-4">
+                        <a asp-page="./Edit" asp-route-id="@Model.TaskItem.Id" class="btn btn-warning btn-lg">Edit</a>
+                        <a asp-page="./Index" class="btn btn-outline-primary btn-lg">Back to List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* JavaScript for Validation (if any)*@
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
